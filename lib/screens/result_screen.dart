@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/reusable_card.dart';
 import '../components/bottom_button.dart';
-import '../constants.dart';
 
 class ResultsPage extends StatelessWidget {
   ResultsPage(
@@ -29,30 +28,42 @@ class ResultsPage extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Text(
                 'Your Result',
-                style: kTitleTextStyle,
+                style: TextStyle(
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
           Expanded(
             flex: 5,
             child: ReusableCard(
-              colour: kActiveCardColour,
+              colour: Color(0xFF1D1E33),
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     resultText.toUpperCase(),
-                    style: kResultTextStyle,
+                    style: TextStyle(
+                      color: Color(0xFF24D876),
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     bmiResult,
-                    style: kBMITextStyle,
+                    style: TextStyle(
+                      fontSize: 100.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     interpretation,
                     textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
+                    style: TextStyle(
+                      fontSize: 22.0,
+                    ),
                   ),
                 ],
               ),

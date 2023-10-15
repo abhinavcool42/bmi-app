@@ -3,11 +3,12 @@ import '../components/bottom_button.dart';
 import '../components/icon_content.dart';
 import '../components/reusable_card.dart';
 import '../components/round_icon_button.dart';
-import '../constants.dart';
 import 'result_screen.dart';
 import 'dart:math';
 
 class CalculatorScreen extends StatefulWidget {
+  const CalculatorScreen({super.key});
+
   @override
   CalculatorScreenState createState() => CalculatorScreenState();
 }
@@ -22,7 +23,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: const Text('BMI CALCULATOR'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,8 +39,8 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                     });
                   },
                   colour: selectedGender == "male"
-                      ? kActiveCardColour
-                      : kInactiveCardColour,
+                      ? const Color(0xFF1D1E33)
+                      : const Color(0xFF111328),
                   cardChild: IconContent(
                     icon: Icons.male_outlined,
                     label: 'MALE',
@@ -54,8 +55,8 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                     });
                   },
                   colour: selectedGender == "female"
-                      ? kActiveCardColour
-                      : kInactiveCardColour,
+                      ? const Color(0xFF1D1E33)
+                      : const Color(0xFF111328),
                   cardChild: IconContent(
                     icon: Icons.female_outlined,
                     label: 'FEMALE',
@@ -66,13 +67,16 @@ class CalculatorScreenState extends State<CalculatorScreen> {
           )),
           Expanded(
             child: ReusableCard(
-              colour: kActiveCardColour,
+              colour: const Color(0xFF1D1E33),
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'HEIGHT',
-                    style: kLabelTextStyle,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Color(0xFF8D8E98),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,24 +85,30 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                     children: [
                       Text(
                         height.toString(),
-                        style: kNumberTextStyle,
+                        style: const TextStyle(
+                          fontSize: 50.0,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
-                      Text(
+                      const Text(
                         'cm',
-                        style: kLabelTextStyle,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Color(0xFF8D8E98),
+                        ),
                       )
                     ],
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                      inactiveTrackColor: Color(0xFF8D8E98),
+                      inactiveTrackColor: const Color(0xFF8D8E98),
                       activeTrackColor: Colors.white,
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555),
+                      thumbColor: const Color(0xFFEB1555),
+                      overlayColor: const Color(0x29EB1555),
                       thumbShape:
-                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          const RoundSliderThumbShape(enabledThumbRadius: 15.0),
                       overlayShape:
-                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                          const RoundSliderOverlayShape(overlayRadius: 30.0),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -120,17 +130,23 @@ class CalculatorScreenState extends State<CalculatorScreen> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    colour: kActiveCardColour,
+                    colour: const Color(0xFF1D1E33),
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'WEIGHT',
-                          style: kLabelTextStyle,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Color(0xFF8D8E98),
+                          ),
                         ),
                         Text(
                           weight.toString(),
-                          style: kNumberTextStyle,
+                          style: const TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +158,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                                     weight--;
                                   });
                                 }),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
@@ -161,17 +177,23 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: kActiveCardColour,
+                    colour: const Color(0xFF1D1E33),
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'AGE',
-                          style: kLabelTextStyle,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Color(0xFF8D8E98),
+                          ),
                         ),
                         Text(
                           age.toString(),
-                          style: kNumberTextStyle,
+                          style: const TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +208,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                                 );
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
